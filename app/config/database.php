@@ -33,6 +33,12 @@ return [
 
     'connections' => [
 
+        'local' => [
+            'driver' => 'sqlite',
+            'database' => storage_path('local.sqlite'),
+            'prefix' => '',
+        ],
+
         'sqlite' => [
             'driver' => 'sqlite',
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
