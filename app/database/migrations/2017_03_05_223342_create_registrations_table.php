@@ -19,7 +19,8 @@ class CreateRegistrationsTable extends Migration
             $table->boolean('is_banned')->default(false);
 
             $table->string('username')->unique();
-            $table->string('password');
+            $table->string('email')->unique();
+            $table->string('buddy_name');
 
             $table->timestamps();
         });
