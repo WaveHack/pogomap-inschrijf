@@ -45,7 +45,7 @@
                 </ul>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" name="terms" id="terms"> Yes, ik ga hier mee akkoord. Geef me toegang tot de awesome map!
+                        <input type="checkbox" name="terms" id="terms" required> Yes, ik ga hier mee akkoord. Geef me toegang tot de awesome map!
                     </label>
                 </div>
             </div>
