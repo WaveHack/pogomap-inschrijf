@@ -9,6 +9,8 @@ class AuthController extends Controller
 {
     use AuthenticatesUsers;
 
+    protected $redirectTo = '/admin';
+
     public function getLogin()
     {
         return view('pages.auth.login');
