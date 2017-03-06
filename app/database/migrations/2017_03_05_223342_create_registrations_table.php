@@ -16,8 +16,6 @@ class CreateRegistrationsTable extends Migration
         Schema::create('registrations', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->boolean('is_banned')->default(false);
-
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('buddy_name');

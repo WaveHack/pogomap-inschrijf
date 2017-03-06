@@ -18,6 +18,8 @@ class CreateAccountsTable extends Migration
 
             $table->unsignedInteger('registration_id');
 
+            $table->boolean('is_banned')->default(false);
+
             $table->timestamps();
 
             $table->foreign('registration_id')->references('id')->on('registrations');
