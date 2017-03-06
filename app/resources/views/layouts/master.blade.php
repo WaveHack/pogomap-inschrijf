@@ -14,7 +14,16 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+
+            <div class="page-header">
+                <h1>Inschrijven</h1>
+                <p class="lead">Voor de Pokémon Go map van Groningen</p>
+            </div>
+
+            @include('partials.alerts')
+
             @yield('content')
+
         </div>
     </div>
 </div>

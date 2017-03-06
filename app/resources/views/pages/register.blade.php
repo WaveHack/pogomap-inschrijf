@@ -1,11 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="page-header">
-        <h1>Inschrijven</h1>
-        <p class="lead">Voor de Pokémon Go map van Groningen</p>
-    </div>
-
     <form class="form-horizontal" action="{{ route('register') }}" method="post" enctype="multipart/form-data" role="form">
         {{ csrf_field() }}
 
@@ -26,11 +21,11 @@
         </div>
 
         <div class="form-group">
-            <label for="buddy_name" class="col-sm-3 control-label">Verificatie <span class="text-danger">*</span></label>
+            <label for="buddy_file" class="col-sm-3 control-label">Verificatie <span class="text-danger">*</span></label>
             <div class="col-sm-9">
                 Stap 1: Geef je buddy de naam <em>{{ $buddy_name }}</em><br>
                 Stap 2: Maak een screenshot van je character, zorg dat je naam, je buddy naam en 'start date' duidelijk zichtbaar zijn en voeg dit bestand toe:<br><br>
-                <input type="file" name="buddy_name" class="custom-file-input" id="buddy_name" required><br>
+                <input type="file" name="buddy_file" class="custom-file-input" id="buddy_name" required><br>
                 Voorbeeld;<br>
                 <img src="{{ asset('assets/app/images/registration_example.png') }}" alt="Voorbeeld" class="img-responsive img-thumbnail">
             </div>

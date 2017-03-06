@@ -19,6 +19,7 @@ class CreateRegistrationsTable extends Migration
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('buddy_name');
+            $table->string('buddy_file_path');
 
             $table->timestamps();
         });
