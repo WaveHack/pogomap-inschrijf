@@ -9,9 +9,7 @@ class DashboardController extends Controller
 {
     public function getIndex()
     {
-        $registrations = Registration::doesntHave('account')->orderBy('created_at')->get();
-
-        // todo: where is_spam == false
+        $registrations = Registration::where('status', 'new')->orderBy('created_at')->get();
 
         return view('pages.admin.dashboard', compact('registrations'));
     }

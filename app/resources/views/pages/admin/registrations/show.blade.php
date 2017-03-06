@@ -23,7 +23,17 @@
 
             <div class="row form-group">
                 <div class="col-sm-6"><strong>Status</strong></div>
-                <div class="col-sm-6">Nog niet gekeurd</div>
+                <div class="col-sm-6">
+                    @php
+                        $statusClass = 'default';
+                        switch ($registration->status) {
+                            case 'new': $statusClass = 'primary'; break;
+                            case 'accepted': $statusClass = 'success'; break;
+                            case 'rejected': $statusClass = 'danger'; break;
+                        }
+                    @endphp
+                    <span class="label label-{{ $statusClass }}">{{ __('registration.status.' . $registration->status) }}</span>
+                </div>
             </div>
 
             <div class="row">
@@ -32,7 +42,7 @@
                         <input type="hidden" name="_method" value="PUT">
                         {{ csrf_field() }}
 
-                        <button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-ok-sign"></i> Goedkeuren</button>
+                        <button type="submit" name="accept" class="btn btn-success"><i class="glyphicon glyphicon-ok-sign"></i> Goedkeuren</button>
                     </form>
                 </div>
             </div>
@@ -52,13 +62,13 @@
                             <option value="spam">Spam (verbergt registratie)</option>
                         </select>
                         <br>
-                        <button type="submit" class="btn btn-danger"><i class="glyphicon glyphicon-remove-sign"></i> Afkeuren</button><br>
+                        <button type="submit" name="reject" class="btn btn-danger"><i class="glyphicon glyphicon-remove-sign"></i> Afkeuren</button><br>
                     </form>
                 </div>
             </div>
         </div>
         <div class="col-sm-6">
-            <img src="data:image/png;base64,{{ $buddyImageData }}" class="img-responsive img-thumbnail" alt="Buddy">
+            <img src="data:{{ $mime }};base64,{{ $buddyImageData }}" class="img-responsive img-thumbnail" alt="Buddy">
         </div>
     </div>
 @endsection
