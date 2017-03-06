@@ -29,9 +29,9 @@
 
         <div class="form-group">
             <div class="col-sm-9 col-sm-offset-3">
-                <p>Na goedkeuring krijg je op dit adres een email met je wachtwoord. Dit kan enige tijd duren aangezien dit handmatig gebeurt. Als je een van de beheerders kent dan kun je hen ook vragen.</p>
+                <p>Na goedkeuring krijg je op dit adres een email met je wachtwoord. Dit kan enige tijd duren aangezien dit handmatig gebeurt. Als je een van de beheerders kent dan kun je hen ook vragen om je registratie te beoordelen als je haast hebt.</p>
                 <p>Als je je wachtwoord vergeten bent kun je <a href="#">een nieuw wachtwoord aanvragen</a>.</p>
-                <p>Je in-game naam en email zijn NIET zichtbaar voor andere gebruikers, anders dan voor de beheerders van de Pokémon Go map van Groningen ter controle. Je email-adres wordt ook NIET verstrekt aan derden en wordt NIET voor promotiedoeleinden gebruikt.</p>
+                <p>Je in-game naam en email zijn NIET zichtbaar voor andere gebruikers, anders dan voor de beheerders van de Pokémon Go map van Groningen ter controle. Je email-adres wordt ook NIET aan derden verstrekt en wordt NIET voor promotiedoeleinden gebruikt.</p>
             </div>
         </div>
 
