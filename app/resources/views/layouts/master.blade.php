@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Inschrijven</title>
+    <title>@yield('page-title')</title>
 
     <link rel="stylesheet" href="{{ mix('assets/app/css/app.css') }}">
 </head>
@@ -16,8 +16,10 @@
         <div class="col-md-8 col-md-offset-2">
 
             <div class="page-header">
-                <h1>Inschrijven</h1>
-                <p class="lead">Voor de Pokémon Go map van Groningen</p>
+                <h1>@yield('page-header')</h1>
+                @hasSection('page-subheader')
+                    <p class="lead">@yield('page-subheader')</p>
+                @endif
             </div>
 
             @include('partials.alerts')

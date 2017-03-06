@@ -11,12 +11,12 @@ $router->group(['prefix' => 'admin'], function (Router $router) {
 
     $router->get('/')->uses('AdminController@getIndex')->name('admin');
 
-    $router->get('login')->uses('AuthController@getLogin')->name('admin.login');
+    $router->get('login')->uses('AuthController@getLogin')->name('auth.login');
     $router->post('login')->uses('AuthController@postLogin');
 
     $router->group(['middleware' => 'auth'], function (Router $router) {
 
-        $router->post('logout')->uses('AuthController@postLogout')->name('admin.logout');
+        $router->post('logout')->uses('AuthController@postLogout')->name('auth.logout');
 
         $router->get('dashboard')->uses('AdminController@getDashboard')->name('admin.dashboard');
 
