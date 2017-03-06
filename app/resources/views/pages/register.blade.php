@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="page-header">
-        <h1>Inschrijf</h1>
+        <h1>Inschrijven</h1>
+        <p class="lead">Voor de Pokémon Go map van Groningen</p>
     </div>
 
     <form class="form-horizontal" action="{{ route('register') }}" method="post" enctype="multipart/form-data" role="form">
