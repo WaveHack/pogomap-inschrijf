@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,7 @@ class AuthController extends Controller
         return $this->login($request);
     }
 
-    public function postLogout(Request $request)
+    public function getLogout(Request $request)
     {
         return $this->logout($request);
     }

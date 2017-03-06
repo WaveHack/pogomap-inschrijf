@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('page-header', 'Inschrijven')
-@section('page-subheader', 'Voor de Pokémon Go map van Groningen')
 
 @section('content')
     <form class="form-horizontal" action="{{ route('register') }}" method="post" enctype="multipart/form-data" role="form">

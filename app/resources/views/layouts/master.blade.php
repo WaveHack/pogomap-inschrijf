@@ -12,15 +12,23 @@
 <body>
 
 <div class="container">
+    <div class="header clearfix">
+        @if (Auth::check())
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li class="{{ Request::is('admin/dashboard') ? 'active' : null }}"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                    <li class="{{ Request::is('admin/registrations*') ? 'active' : null }}"><a href="#">Registraties</a></li>
+                    <li class="{{ Request::is('admin/accounts*') ? 'active' : null }}"><a href="#">Gebruikers</a></li>
+                    <li class=""><a href="{{ route('auth.logout') }}">Uitloggen</a></li>
+                </ul>
+            </nav>
+        @endif
+
+        <h3 class="text-muted">@yield('page-header')</h3>
+    </div>
+
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-
-            <div class="page-header">
-                <h1>@yield('page-header')</h1>
-                @hasSection('page-subheader')
-                    <p class="lead">@yield('page-subheader')</p>
-                @endif
-            </div>
 
             @include('partials.alerts')
 

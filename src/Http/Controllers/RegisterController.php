@@ -23,7 +23,7 @@ class RegisterController extends Controller
         $this->validate($request, [
             'username' => 'required|unique:registrations',
             'email' => 'required|email|unique:registrations',
-            'buddy_file' => 'required|file',
+            'buddy_file' => 'required|file|image',
             'terms' => 'required|accepted',
         ]);
 
