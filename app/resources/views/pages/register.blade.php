@@ -1,6 +1,5 @@
 @extends('layouts.master')
 
-@section('page-title', 'Inschrijven')
 @section('page-header', 'Inschrijven')
 @section('page-subheader', 'Voor de Pokémon Go map van Groningen')
 

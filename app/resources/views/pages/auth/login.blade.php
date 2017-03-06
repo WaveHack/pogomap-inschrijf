@@ -1,6 +1,5 @@
 @extends('layouts.master')
 
-@section('page-title', 'Inloggen')
 @section('page-header', 'Inloggen')
 
 @section('content')
