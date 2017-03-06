@@ -1,6 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
+    <div class="page-header">
+        <h1>Inschrijf</h1>
+    </div>
+
     <form class="form-horizontal" action="{{ route('register') }}" method="post" enctype="multipart/form-data" role="form">
         {{ csrf_field() }}
 
@@ -16,6 +20,7 @@
             <div class="col-sm-9">
                 <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
                 <p class="help-block">Na goedkeuring krijg je op dit adres een email met je wachtwoord. Ook als je je wachtwoord vergeten bent kun je hiermee een nieuw wachtwoord aanvragen.</p>
+                <p class="help-block">Zowel je in-game naam als email zijn niet zichtbaar voor andere gebruikers.</p>
             </div>
         </div>
 
@@ -32,7 +37,7 @@
 
         <div class="form-group">
             <div class="col-sm-9 col-sm-offset-3">
-                <button type="submit" class="btn btn-primary">Registreren</button>
+                <button type="submit" class="btn btn-primary">Inschrijven</button>
             </div>
         </div>
     </form>
