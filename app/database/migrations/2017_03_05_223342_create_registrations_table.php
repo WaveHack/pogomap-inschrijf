@@ -16,10 +16,16 @@ class CreateRegistrationsTable extends Migration
         Schema::create('registrations', function (Blueprint $table) {
             $table->increments('id');
 
+            $table->boolean('is_spam')->default(false);
+
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('buddy_name');
             $table->string('buddy_file_path');
+
+            $table->string('status')->default('new');
+            $table->unsignedInteger('status_update_by_user_id')->nullable();
+            $table->dateTime('status_update_at')->nullable();
 
             $table->timestamps();
         });
