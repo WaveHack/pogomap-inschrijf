@@ -1,4 +1,4 @@
-@if (!$errors->isEmpty())
+{{--@if (!$errors->isEmpty())
     <div class="alert alert-danger alert-dismissible">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <h4>Een of meer fouten zijn opgetreden:</h4>
@@ -8,7 +8,7 @@
             @endforeach
         </ul>
     </div>
-@endif
+@endif--}}
 
 @foreach (['danger', 'warning', 'success', 'info'] as $alert_type)
     @if (Session::has('alert-' . $alert_type))

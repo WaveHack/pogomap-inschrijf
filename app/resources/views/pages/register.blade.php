@@ -4,19 +4,31 @@
     <form class="form-horizontal" action="{{ route('register') }}" method="post" enctype="multipart/form-data" role="form">
         {{ csrf_field() }}
 
-        <div class="form-group">
+        <div class="form-group {{ $errors->has('username') ? 'has-error' : null }}">
             <label for="username" class="col-sm-3 control-label">In-game naam <span class="text-danger">*</span></label>
             <div class="col-sm-9">
-                <input type="text" name="username" class="form-control" id="username" placeholder="In-game naam" required autofocus>
+                <input type="text" name="username" class="form-control" id="username" placeholder="In-game naam" value="{{ old('username') }}" required autofocus>
+                @if ($errors->has('username'))
+                    <p class="help-block">{{ $errors->first('username') }}</p>
+                @endif
+            </div>
+        </div>
+
+        <div class="form-group {{ $errors->has('email') ? 'has-error' : null }}">
+            <label for="email" class="col-sm-3 control-label">Email <span class="text-danger">*</span></label>
+            <div class="col-sm-9">
+                <input type="email" name="email" class="form-control" id="email" placeholder="Email" value="{{ old('email') }}" required>
+                @if ($errors->has('email'))
+                    <p class="help-block">{{ $errors->first('email') }}</p>
+                @endif
+
             </div>
         </div>
 
         <div class="form-group">
-            <label for="email" class="col-sm-3 control-label">Email <span class="text-danger">*</span></label>
-            <div class="col-sm-9">
-                <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
-                <p class="help-block">Na goedkeuring krijg je op dit adres een email met je wachtwoord. Dit kan enige tijd duren aangezien dit handmatig gebeurt. Ook als je je wachtwoord vergeten bent kun je hiermee een nieuw wachtwoord aanvragen.</p>
-                <p class="help-block">Je in-game naam en email zijn NIET zichtbaar voor andere gebruikers, anders dan voor de beheerders van de Pokémon Go map van Groningen ter controle. Je email-adres wordt ook niet verstrekt aan derden of voor promotiedoeleinden gebruikt.</p>
+            <div class="col-sm-9 col-sm-offset-3">
+                <p>Na goedkeuring krijg je op dit adres een email met je wachtwoord. Dit kan enige tijd duren aangezien dit handmatig gebeurt. Ook als je je wachtwoord vergeten bent kun je hiermee een nieuw wachtwoord aanvragen.</p>
+                <p>Je in-game naam en email zijn NIET zichtbaar voor andere gebruikers, anders dan voor de beheerders van de Pokémon Go map van Groningen ter controle. Je email-adres wordt ook niet verstrekt aan derden of voor promotiedoeleinden gebruikt.</p>
             </div>
         </div>
 
