@@ -19,6 +19,7 @@ class CreateAccountsTable extends Migration
             $table->unsignedInteger('registration_id');
 
             $table->boolean('is_banned')->default(false);
+            $table->dateTime('last_online')->default(null);
 
             $table->timestamps();
 

@@ -36,6 +36,13 @@
                 </div>
             </div>
 
+            @if ($registration->account)
+                <div class="row form-group">
+                    <div class="col-sm-6"><strong>Account:</strong></div>
+                    <div class="col-sm-6"><a href="{{ route('admin.accounts.show', $registration->account) }}">{{ $registration->username }}</a></div>
+                </div>
+            @endif
+
             <div class="row">
                 <div class="col-xs-12">
                     <form action="{{ route('admin.registrations.update', $registration) }}" method="post" role="form">

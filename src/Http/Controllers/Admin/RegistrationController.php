@@ -3,12 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Account;
 use App\Models\Registration;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class RegistrationController extends Controller
 {
+    public function index()
+    {
+        $registrations = Registration::where('is_spam', false)->orderBy('created_at', 'desc')->get();
+
+        return view('pages.admin.registrations.index', compact('registrations'));
+    }
+
     public function show(Registration $registration)
     {
         $path = (storage_path() . '/app/' . $registration->buddy_file_path);
@@ -47,12 +55,30 @@ class RegistrationController extends Controller
             'status_update_at' => new Carbon,
         ]);
 
-        if (($status === 'accepted') && $registration->is_spam) {
-            $registration->is_spam = false;
+        if ($status === 'accepted') {
+            if (!$registration->account) {
+                Account::create([
+                    'registration_id' => $registration->id,
+                ]);
+
+                // todo: send success mail
+            }
+
+            // Clear spam flag if present
+            if ($registration->is_spam) {
+                $registration->is_spam = false;
+            }
         }
 
-        if (($status === 'rejected') && ($request->get('reject_reason') === 'spam')) {
-            $registration->is_spam = true;
+        if ($status === 'rejected') {
+            if ($request->get('reject_reason') === 'spam') {
+                // Don't send mail on spam
+                $registration->is_spam = true;
+
+            } elseif ($registration->status === 'new') {
+                // Only send one reject mail
+                // todo: send rejected mail
+            }
         }
 
         $registration->save();

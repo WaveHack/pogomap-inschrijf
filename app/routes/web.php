@@ -27,10 +27,12 @@ $router->group(['prefix' => 'admin'], function (Router $router) {
 
         $router->get('dashboard')->uses('Admin\DashboardController@getIndex')->name('admin.dashboard');
 
+        $router->get('registrations')->uses('Admin\RegistrationController@index')->name('admin.registrations.index');
         $router->get('registrations/{registration}')->uses('Admin\RegistrationController@show')->name('admin.registrations.show');
         $router->put('registrations/{registration}')->uses('Admin\RegistrationController@update')->name('admin.registrations.update');
 
-        // accounts
+        $router->get('accounts')->uses('Admin\AccountController@index')->name('admin.accounts.index');
+        $router->get('accounts/{account}')->uses('Admin\AccountController@show')->name('admin.accounts.show');
 
     });
 

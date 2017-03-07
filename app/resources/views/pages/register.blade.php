@@ -54,7 +54,7 @@
                 <p>Door je in te schrijven verklaar je akkoord te gaan met de volgende voorwaarden:</p>
                 <ul>
                     <li>Je zal je accountgegevens niet delen met anderen om hen toegang tot de Pokémon Go map van Groningen te geven met jouw account.</li>
-                    <li>Er wordt hier geanonimiseerd op gecontroleerd door de beheerders. Bij constatering van misbruik wordt een waarschuwing gegeven of wordt het account gedeactiveerd.</li>
+                    <li>Er wordt hier op gecontroleerd door de beheerders. Bij constatering van misbruik wordt een waarschuwing gegeven of wordt het account gedeactiveerd.</li>
                 </ul>
                 <div class="checkbox">
                     <label>
