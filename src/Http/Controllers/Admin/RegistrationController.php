@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\RegistrationAccepted;
+use App\Mail\RegistrationRejected;
 use App\Models\Account;
 use App\Models\Registration;
+use axy\htpasswd\PasswordFile;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class RegistrationController extends Controller
 {
@@ -61,7 +65,13 @@ class RegistrationController extends Controller
                     'registration_id' => $registration->id,
                 ]);
 
-                // todo: send success mail
+                $password = str_random(8);
+
+                $htpasswd = new PasswordFile(storage_path('.htpasswd'));
+                $htpasswd->setPassword($registration->username, $password);
+                $htpasswd->save();
+
+                Mail::to($registration)->send(new RegistrationAccepted($registration, $password));
             }
 
             // Clear spam flag if present
@@ -76,14 +86,13 @@ class RegistrationController extends Controller
                 $registration->is_spam = true;
 
             } elseif ($registration->status === 'new') {
-                // Only send one reject mail
-                // todo: send rejected mail
+                // Only send one reject mail when changing status from 'new'
+
+                Mail::to($registration)->send(new RegistrationRejected($registration));
             }
         }
 
         $registration->save();
-
-        // todo: send mail to user based on $status
 
         $request->session()->flash('alert-success', "De registratie is {$label}");
 
