@@ -12,6 +12,10 @@ class RegistrationAccepted extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $registration;
+
+    public $password;
+
     /**
      * Create a new message instance.
      *
@@ -20,7 +24,8 @@ class RegistrationAccepted extends Mailable
      */
     public function __construct(Registration $registration, $password)
     {
-        //
+        $this->registration = $registration;
+        $this->password = $password;
     }
 
     /**
@@ -30,6 +35,7 @@ class RegistrationAccepted extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.registration.accepted');
+        return $this->subject('Registratie goedgekeurd')
+            ->markdown('emails.registration.accepted');
     }
 }

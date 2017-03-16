@@ -1,5 +1,6 @@
 /.idea/
 /app/storage/*.key
+/app/storage/.htpasswd
 /app/storage/local.sqlite
 /node_modules/
 /public/assets/
