@@ -15,9 +15,42 @@
     <![endif]-->
 </head>
 <body class="hold-transition skin-blue layout-top-nav">
-{!! Analytics::render() !!}
+{{--{!! Analytics::render() !!}--}}
 
 @include('partials.scripts')
+
+<div class="wrapper">
+
+    <!-- Content -->
+    <div class="content-wrapper">
+        <div class="container">
+
+            @hasSection('page-header')
+                <div class="content-header">
+                    <h1>
+                        @yield('page-header')
+
+                        @hasSection('page-subheader')
+                            <small>
+                                @yield('page-subheader')
+                            </small>
+                        @endif
+                    </h1>
+                </div>
+            @endif
+
+            <div class="content">
+
+                @include('partials.alerts')
+
+                @yield('content')
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
 
 </body>
 </html>

@@ -1,6 +1,7 @@
-@extends('layouts.master')
+@extends('layouts.topnav')
 
 @section('page-header', 'Inschrijven')
+@section('page-subheader', config('app.name'))
 
 @section('content')
     <form class="form-horizontal" action="{{ route('register') }}" method="post" enctype="multipart/form-data" role="form">
