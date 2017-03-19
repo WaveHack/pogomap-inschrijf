@@ -16,7 +16,7 @@ const vendorFiles = {
 };
 
 for (let file in vendorFiles) {
-    mix.copy(file, vendorFiles[file]);
+    mix.copy(file, vendorFiles[file], false);
 }
 
 mix.copy('app/resources/assets/images', 'public/assets/app/images', false);
