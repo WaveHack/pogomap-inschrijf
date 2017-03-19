@@ -4,8 +4,10 @@ use Illuminate\Routing\Router;
 
 /** @var \Illuminate\Routing\Router $router */
 
-$router->get('/')->uses('RegisterController@getIndex')->name('register');
-$router->post('/')->uses('RegisterController@postIndex');
+$router->get('/')->uses('HomeController@getIndex')->name('home');
+
+$router->get('register')->uses('RegisterController@getIndex')->name('register');
+$router->post('register')->uses('RegisterController@postIndex');
 
 $router->group(['prefix' => 'admin'], function (Router $router) {
 
