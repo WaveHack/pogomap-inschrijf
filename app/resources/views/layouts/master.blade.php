@@ -18,7 +18,12 @@
                 <ul class="nav nav-pills pull-right">
                     <li class="{{ Request::is('admin/dashboard') ? 'active' : null }}"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                     <li class="{{ Request::is('admin/registrations*') ? 'active' : null }}"><a href="{{ route('admin.registrations.index') }}">Registraties</a></li>
-                    <li class="{{ Request::is('admin/accounts*') ? 'active' : null }}"><a href="{{ route('admin.accounts.index') }}">Gebruikers</a></li>
+                    <li class="{{ Request::is('admin/accounts*') ? 'active' : null }}"><a href="{{ route('admin.accounts.index') }}">Accounts</a></li>
+
+                    @if (Auth::user()->is_dev)
+                        <li class="{{ Request::is('admin/user*') ? 'active' : null }}"><a href="{{ route('admin.users.index') }}">Admins</a></li>
+                    @endif
+
                     <li class=""><a href="{{ route('auth.logout') }}">Uitloggen</a></li>
                 </ul>
             </nav>

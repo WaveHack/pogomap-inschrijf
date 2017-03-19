@@ -34,6 +34,10 @@ $router->group(['prefix' => 'admin'], function (Router $router) {
         $router->get('accounts')->uses('Admin\AccountController@index')->name('admin.accounts.index');
         $router->get('accounts/{account}')->uses('Admin\AccountController@show')->name('admin.accounts.show');
 
+        $router->get('users')->uses('Admin\UserController@index')->name('admin.users.index');
+        $router->get('users/{user}')->uses('Admin\UserController@show')->name('admin.users.show');
+
+
     });
 
 });
