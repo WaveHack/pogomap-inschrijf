@@ -32,7 +32,7 @@
             <div class="col-sm-9 col-sm-offset-3">
                 <p>Na goedkeuring krijg je op dit adres een email met je wachtwoord. Dit kan enige tijd duren aangezien dit handmatig gebeurt. Als je een van de beheerders kent dan kun je hen ook vragen om je registratie te beoordelen als je haast hebt.</p>
                 {{--<p>Als je je wachtwoord vergeten bent kun je <a href="#">een nieuw wachtwoord aanvragen</a>.</p>--}}
-                <p>Je in-game naam en email zijn NIET zichtbaar voor andere gebruikers, anders dan voor de beheerders van de Pokémon Go map van Groningen ter controle. Je email-adres wordt ook NIET aan derden verstrekt en wordt NIET voor promotiedoeleinden gebruikt.</p>
+                <p>Je in-game naam en email zijn NIET zichtbaar voor andere gebruikers, anders dan voor de beheerders van de {{ config('app.name') }} ter controle. Je email-adres wordt ook NIET aan derden verstrekt en wordt NIET voor promotiedoeleinden gebruikt.</p>
             </div>
         </div>
 
@@ -54,9 +54,9 @@
             <div class="col-sm-9">
                 <p>Door je in te schrijven verklaar je akkoord te gaan met de volgende voorwaarden:</p>
                 <ul>
-                    <li>Je zal je accountgegevens niet delen met anderen om hen toegang tot de Pokémon Go map van Groningen te geven met jouw account. Bij constatering van misbruik wordt een waarschuwing gegeven of wordt het account gedeactiveerd.</li>
+                    <li>Je zal je accountgegevens niet delen met anderen om hen toegang tot de {{ config('app.name') }} te geven met jouw account. Bij constatering van misbruik wordt een waarschuwing gegeven of wordt het account gedeactiveerd.</li>
                     <li>De map is afhankelijk van externe partijen en factoren en bij uitval van de map wordt er naar redelijkheid hard gewerkt om de map z.s.m. weer draaiende te krijgen. Vaak is dit wachten op een update van de externe partijen en hebben de beheerders hier geen invloed op.</li>
-                    <li>De Pokémon Go map van Groningen is een gratis dienst en er kunnen geen rechten aan worden ontleend.</li>
+                    <li>De {{ config('app.name') }} is een gratis dienst en er kunnen geen rechten aan worden ontleend.</li>
                 </ul>
                 <div class="checkbox">
                     <label>
