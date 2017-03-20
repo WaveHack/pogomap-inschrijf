@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\PasswordReset;
 use App\Mail\RegistrationAccepted;
 use App\Mail\RegistrationRejected;
 use App\Models\Account;
@@ -65,11 +66,7 @@ class RegistrationController extends Controller
                     'registration_id' => $registration->id,
                 ]);
 
-                $password = str_random(8);
-
-                $htpasswd = new PasswordFile(storage_path('.htpasswd'));
-                $htpasswd->setPassword($registration->username, $password);
-                $htpasswd->save();
+                $password = $this->generateAndSavePassword($registration);
 
                 Mail::to($registration)->send(new RegistrationAccepted($registration, $password));
             }
@@ -101,6 +98,35 @@ class RegistrationController extends Controller
 
     public function postResetPassword(Registration $registration, Request $request)
     {
-        dd([$registration, $request]);
+        if ($registration->status !== 'accepted') {
+            throw new \Exception('Expected registration status accepted, got ' . $registration->status);
+        }
+
+        $password = $this->generateAndSavePassword($registration);
+
+        Mail::to($registration)->send(new PasswordReset($registration, $password));
+
+        $request->session()->flash('alert-success', 'Het wachtwoord is gereset');
+
+        return redirect()->route('admin.registrations.show', $registration);
+    }
+
+    /**
+     * @param Registration $registration
+     *
+     * @return string
+     */
+    private function generateAndSavePassword(Registration $registration)
+    {
+        $password = str_random(8);
+
+        try {
+            $htpasswd = new PasswordFile(storage_path('.htpasswd'));
+            $htpasswd->setPassword($registration->username, $password);
+            $htpasswd->save();
+        } catch (\Exception $e) {
+        }
+
+        return $password;
     }
 }

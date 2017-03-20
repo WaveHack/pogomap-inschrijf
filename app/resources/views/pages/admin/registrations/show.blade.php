@@ -79,7 +79,7 @@
                         <button type="submit" name="reject" class="btn btn-danger"><i class="glyphicon glyphicon-remove-sign"></i> Afkeuren</button>
                     </form>
 
-                    @if ($registration->status === 'accepted')
+{{--                    @if ($registration->status === 'accepted')--}}
                         <br>
                         <form action="{{ route('admin.registrations.reset-password', $registration) }}" method="post" role="form">
                             <input type="hidden" name="_method" value="POST">
@@ -87,7 +87,7 @@
 
                             <button type="submit" name="reset-password" class="btn btn-primary"><i class="glyphicon glyphicon-ok-sign"></i> Reset Wachtwoord</button>
                         </form>
-                    @endif
+                    {{--@endif--}}
                 </div>
             </div>
         </div>

@@ -8,7 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class RegistrationAccepted extends Mailable
+class PasswordReset extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -37,7 +37,7 @@ class RegistrationAccepted extends Mailable
      */
     public function build()
     {
-        return $this->subject('Registratie goedgekeurd')
-            ->markdown('emails.registration.accepted');
+        return $this->subject('Wachtwoord reset')
+            ->markdown('emails.registration.password-reset');
     }
 }
