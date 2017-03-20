@@ -975,6 +975,10 @@ charenc@~0.0.1:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/charenc/-/charenc-0.0.2.tgz#c0a1d2f3a7092e03774bfa83f14c0fc5790a8667"
 
+cheet.js@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/cheet.js/-/cheet.js-0.3.3.tgz#c98e5fdefc8c6241a1cd6dcf71a09b063887daed"
+
 chokidar@1.6.1, chokidar@^1.4.3, chokidar@^1.6.0, chokidar@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-1.6.1.tgz#2f4447ab5e96e50fb3d789fd90d4c72e0e4c70c2"

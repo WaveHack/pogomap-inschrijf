@@ -10,6 +10,7 @@
   "devDependencies": {
     "admin-lte": "^2.3.11",
     "bootstrap-sass": "^3.3.7",
+    "cheet.js": "^0.3.3",
     "font-awesome": "^4.7.0",
     "jquery": "^3.1.1",
     "laravel-mix": "^0.8.1",
