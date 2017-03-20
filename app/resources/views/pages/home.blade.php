@@ -3,11 +3,7 @@
 @section('page-header', ('Welkom bij de ' . config('app.name') . '!'))
 
 @section('content')
-    <p>
-        <a href="{{ asset('assets/app/images/map_example.png') }}">
-            <img src="{{ asset('assets/app/images/map_example.png') }}" class="img img-responsive" alt="Voorbeeld">
-        </a>
-    </p>
+    <p><img src="{{ asset('assets/app/images/map_example.png') }}" class="img img-responsive" alt="Voorbeeld"></p>
 
     <p>Voordat je de map kan gebruiken dien je je eerst <a href="{{ route('register') }}">in te schrijven</a>.</p>
 
