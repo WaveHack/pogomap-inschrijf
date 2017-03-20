@@ -21,11 +21,13 @@ class RegisterController extends Controller
     public function postIndex(Request $request)
     {
         $this->validate($request, [
-            'username' => 'required|unique:registrations',
-            'email' => 'required|email|unique:registrations',
+            'username' => 'required',
+            'email' => 'required|email',
             'buddy_file' => 'required|file|image',
             'terms' => 'required|accepted',
         ]);
+
+        // todo: check if registration exists with (username or email) and account exists
 
         $buddyFilePath = $request->file('buddy_file')->store('buddy_files');
 
