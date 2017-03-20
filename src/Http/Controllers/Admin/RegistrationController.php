@@ -98,4 +98,9 @@ class RegistrationController extends Controller
 
         return redirect()->route('admin.registrations.show', $registration);
     }
+
+    public function postResetPassword(Registration $registration, Request $request)
+    {
+        dd([$registration, $request]);
+    }
 }

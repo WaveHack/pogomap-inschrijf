@@ -55,37 +55,39 @@
                     <h3 class="box-title">Acties</h3>
                 </div>
                 <div class="box-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <form action="{{ route('admin.registrations.update', $registration) }}" method="post" role="form">
-                                <input type="hidden" name="_method" value="PUT">
-                                {{ csrf_field() }}
+                    <form action="{{ route('admin.registrations.update', $registration) }}" method="post" role="form">
+                        <input type="hidden" name="_method" value="PUT">
+                        {{ csrf_field() }}
 
-                                <button type="submit" name="accept" class="btn btn-success"><i class="glyphicon glyphicon-ok-sign"></i> Goedkeuren</button>
-                            </form>
-                            <div class="visible-xs visible-sm">
-                                <br>
-                                <p>Of afkeuren met reden:</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <form action="{{ route('admin.registrations.update', $registration) }}" method="post" role="form">
-                                <input type="hidden" name="_method" value="PUT">
-                                {{ csrf_field() }}
+                        <button type="submit" name="accept" class="btn btn-success"><i class="glyphicon glyphicon-ok-sign"></i> Goedkeuren</button>
+                    </form>
 
-                                <select name="reject_reason" class="form-control" required>
-                                    <option value="" disabled selected>Kies reden</option>
-                                    <option value="no_reason">Geen reden</option>
-                                    <option value="wrong_buddy_name">Verkeerde buddy naam</option>
-                                    <option value="spam">Spam (verbergt registratie)</option>
-                                </select>
+                    <br>
 
-                                <br>
+                    <form action="{{ route('admin.registrations.update', $registration) }}" method="post" role="form">
+                        <input type="hidden" name="_method" value="PUT">
+                        {{ csrf_field() }}
 
-                                <button type="submit" name="reject" class="btn btn-danger"><i class="glyphicon glyphicon-remove-sign"></i> Afkeuren</button>
-                            </form>
-                        </div>
-                    </div>
+                        <select name="reject_reason" class="form-control" required>
+                            <option value="" disabled selected>Kies reden</option>
+                            <option value="no_reason">Geen reden</option>
+                            <option value="wrong_buddy_name">Verkeerde buddy naam</option>
+                            <option value="spam">Spam (verbergt registratie)</option>
+                        </select>
+
+                        <br>
+                        <button type="submit" name="reject" class="btn btn-danger"><i class="glyphicon glyphicon-remove-sign"></i> Afkeuren</button>
+                    </form>
+
+                    @if ($registration->status === 'accepted')
+                        <br>
+                        <form action="{{ route('admin.registrations.reset-password', $registration) }}" method="post" role="form">
+                            <input type="hidden" name="_method" value="POST">
+                            {{ csrf_field() }}
+
+                            <button type="submit" name="reset-password" class="btn btn-primary"><i class="glyphicon glyphicon-ok-sign"></i> Reset Wachtwoord</button>
+                        </form>
+                    @endif
                 </div>
             </div>
         </div>
