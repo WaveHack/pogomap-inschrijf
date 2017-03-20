@@ -37,6 +37,9 @@ class Weedle {
 
         this.x--;
 
+        const scrollTop = ((window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop);
+        this.y = (window.innerHeight + scrollTop - this.SPRITE_HEIGHT);
+
         this.el.style.left = (this.x + 'px');
         this.el.style.top = (this.y + 'px');
     }
