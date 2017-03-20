@@ -15,7 +15,7 @@
     <![endif]-->
 </head>
 <body class="hold-transition skin-blue layout-top-nav">
-{{--{!! Analytics::render() !!}--}}
+{!! Analytics::render() !!}
 
 @include('partials.scripts')
 
