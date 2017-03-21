@@ -18,10 +18,10 @@ class Account extends Model
         return $this->hasMany(AccountLog::class);
     }
 
-    public function uniqueIpCount()
-    {
-        return $this->logs()
-            ->selectRaw('account_id, count(*) as aggregate')
-            ->groupBy('account_id', 'ip_address');
-    }
+//    public function uniqueIpCount()
+//    {
+//        return $this->logs()
+//            ->selectRaw('account_id, count(*) as aggregate')
+//            ->groupBy('account_id', 'ip_address');
+//    }
 }
