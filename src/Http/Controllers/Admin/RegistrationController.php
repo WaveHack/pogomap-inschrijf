@@ -99,7 +99,7 @@ class RegistrationController extends Controller
 
         $request->session()->flash('alert-success', "De registratie is {$label}");
 
-        return redirect()->route('admin.registrations.show', $registration);
+        return redirect()->route('admin.dashboard');
     }
 
 //    public function postResetPassword(Registration $registration, Request $request)
