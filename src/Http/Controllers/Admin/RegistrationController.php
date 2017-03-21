@@ -101,38 +101,4 @@ class RegistrationController extends Controller
 
         return redirect()->route('admin.dashboard');
     }
-
-//    public function postResetPassword(Registration $registration, Request $request)
-//    {
-//        if ($registration->status !== 'accepted') {
-//            throw new \Exception('Expected registration status accepted, got ' . $registration->status);
-//        }
-//
-//        $password = $this->generateAndSavePassword($registration);
-//
-//        Mail::to($registration)->send(new PasswordReset($registration, $password));
-//
-//        $request->session()->flash('alert-success', 'Het wachtwoord is gereset');
-//
-//        return redirect()->route('admin.registrations.show', $registration);
-//    }
-
-    /**
-     * @param Registration $registration
-     *
-     * @return string
-     */
-    private function generateAndSavePassword(Registration $registration)
-    {
-        $password = str_random(8);
-
-        try {
-            $htpasswd = new PasswordFile(storage_path('.htpasswd'));
-            $htpasswd->setPassword($registration->username, $password);
-            $htpasswd->save();
-        } catch (\Exception $e) {
-        }
-
-        return $password;
-    }
 }
