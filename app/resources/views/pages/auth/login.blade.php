@@ -28,6 +28,16 @@
 
         <div class="form-group">
             <div class="col-sm-9 col-sm-offset-3">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="remember"> Onthoud mij
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
                 <button type="submit" class="btn btn-primary">Inloggen</button>
             </div>
         </div>
