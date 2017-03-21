@@ -66,7 +66,13 @@ class RegistrationController extends Controller
                     'registration_id' => $registration->id,
                 ]);
 
-                $password = $this->generateAndSavePassword($registration);
+
+                // todo: service class
+                $password = str_random(8);
+
+                $htpasswd = new PasswordFile(storage_path('.htpasswd'));
+                $htpasswd->setPassword($registration->username, $password);
+                $htpasswd->save();
 
                 Mail::to($registration)->send(new RegistrationAccepted($registration, $password));
             }

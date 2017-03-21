@@ -2,18 +2,18 @@
 
 namespace App\Mail;
 
+use App\Models\Account;
 use App\Models\Registration;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class PasswordReset extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /** @var Registration */
-    public $registration;
+    /** @var Account */
+    public $account;
 
     /** @var string */
     public $password;
@@ -21,12 +21,12 @@ class PasswordReset extends Mailable
     /**
      * Create a new message instance.
      *
-     * @param Registration $registration
+     * @param Registration $account
      * @param string $password
      */
-    public function __construct(Registration $registration, $password)
+    public function __construct(Account $account, $password)
     {
-        $this->registration = $registration;
+        $this->account = $account;
         $this->password = $password;
     }
 
