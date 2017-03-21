@@ -28,7 +28,7 @@
 
                 <!-- Navbar Header -->
                 <div class="navbar-header">
-                    <a href="{{ url('') }}" class="navbar-brand">PoGo050</a>
+                    <a href="{{ url('admin') }}" class="navbar-brand">PoGo050</a>
                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                         <i class="fa fa-bars"></i>
                     </button>
