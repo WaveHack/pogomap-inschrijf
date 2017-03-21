@@ -79,16 +79,6 @@
                             <br>
                             <button type="submit" name="reject" class="btn btn-danger"><i class="glyphicon glyphicon-remove-sign"></i> Afkeuren</button>
                         </form>
-                        <br>
-
-                        {{--@if ($registration->status === 'accepted')
-                            <form action="{{ route('admin.registrations.reset-password', $registration) }}" method="post" role="form">
-                                <input type="hidden" name="_method" value="POST">
-                                {{ csrf_field() }}
-
-                                <button type="submit" name="reset-password" class="btn btn-primary"><i class="glyphicon glyphicon-ok-sign"></i> Reset Wachtwoord</button>
-                            </form>
-                        @endif--}}
                     </div>
                 </div>
             @endif

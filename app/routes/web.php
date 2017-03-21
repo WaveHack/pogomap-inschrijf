@@ -32,10 +32,10 @@ $router->group(['prefix' => 'admin'], function (Router $router) {
         $router->get('registrations')->uses('Admin\RegistrationController@index')->name('admin.registrations.index');
         $router->get('registrations/{registration}')->uses('Admin\RegistrationController@show')->name('admin.registrations.show');
         $router->put('registrations/{registration}')->uses('Admin\RegistrationController@update')->name('admin.registrations.update');
-        $router->post('registrations/{registration}')->uses('Admin\RegistrationController@postResetPassword')->name('admin.registrations.reset-password');
 
         $router->get('accounts')->uses('Admin\AccountController@index')->name('admin.accounts.index');
         $router->get('accounts/{account}')->uses('Admin\AccountController@show')->name('admin.accounts.show');
+        $router->post('accounts/{account}')->uses('Admin\AccountController@postResetPassword')->name('admin.accounts.reset-password');
 
         $router->get('users')->uses('Admin\UserController@index')->name('admin.users.index');
         $router->get('users/{user}')->uses('Admin\UserController@show')->name('admin.users.show');

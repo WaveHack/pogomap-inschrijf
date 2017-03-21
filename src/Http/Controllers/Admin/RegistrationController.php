@@ -96,20 +96,20 @@ class RegistrationController extends Controller
         return redirect()->route('admin.registrations.show', $registration);
     }
 
-    public function postResetPassword(Registration $registration, Request $request)
-    {
-        if ($registration->status !== 'accepted') {
-            throw new \Exception('Expected registration status accepted, got ' . $registration->status);
-        }
-
-        $password = $this->generateAndSavePassword($registration);
-
-        Mail::to($registration)->send(new PasswordReset($registration, $password));
-
-        $request->session()->flash('alert-success', 'Het wachtwoord is gereset');
-
-        return redirect()->route('admin.registrations.show', $registration);
-    }
+//    public function postResetPassword(Registration $registration, Request $request)
+//    {
+//        if ($registration->status !== 'accepted') {
+//            throw new \Exception('Expected registration status accepted, got ' . $registration->status);
+//        }
+//
+//        $password = $this->generateAndSavePassword($registration);
+//
+//        Mail::to($registration)->send(new PasswordReset($registration, $password));
+//
+//        $request->session()->flash('alert-success', 'Het wachtwoord is gereset');
+//
+//        return redirect()->route('admin.registrations.show', $registration);
+//    }
 
     /**
      * @param Registration $registration
