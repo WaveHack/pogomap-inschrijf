@@ -52,6 +52,7 @@ class Weedle {
         el.style.width = (this.SPRITE_WIDTH + 'px');
         el.style.height = (this.SPRITE_HEIGHT + 'px');
 
+        // Sprite made by JoshR691 at http://adamantditto.blogspot.nl/p/sprites.html
         el.style.backgroundImage = 'url(\'assets/app/images/weedle.png\')';
 
         const animation = 'play 1s steps(6) infinite';
