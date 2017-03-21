@@ -19,8 +19,12 @@ $router->group(['prefix' => 'admin'], function (Router $router) {
         return redirect()->route('admin.dashboard');
     });
 
-    $router->get('login')->uses('Admin\AuthController@getLogin')->name('auth.login');
-    $router->post('login')->uses('Admin\AuthController@postLogin');
+    $router->group(['middleware' => 'guest'], function (Router $router) {
+
+        $router->get('login')->uses('Admin\AuthController@getLogin')->name('auth.login');
+        $router->post('login')->uses('Admin\AuthController@postLogin');
+
+    });
 
     $router->group(['middleware' => 'auth'], function (Router $router) {
 
