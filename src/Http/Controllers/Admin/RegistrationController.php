@@ -10,6 +10,7 @@ use App\Models\Account;
 use App\Models\Registration;
 use axy\htpasswd\PasswordFile;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -62,19 +63,23 @@ class RegistrationController extends Controller
 
         if ($status === 'accepted') {
             if (!$registration->account) {
-                Account::create([
-                    'registration_id' => $registration->id,
-                ]);
-
-
                 // todo: service class
                 $password = str_random(8);
+
+                try {
+                    Mail::to($registration)->send(new RegistrationAccepted($registration, $password));
+                } catch (Exception $e) {
+                    $request->session()->flash('alert-danger', ('Er ging iets fout bij het mailen: ' . $e->getMessage()));
+                    return redirect()->back();
+                }
 
                 $htpasswd = new PasswordFile(storage_path('.htpasswd'));
                 $htpasswd->setPassword($registration->username, $password);
                 $htpasswd->save();
 
-                Mail::to($registration)->send(new RegistrationAccepted($registration, $password));
+                Account::create([
+                    'registration_id' => $registration->id,
+                ]);
             }
 
             // Clear spam flag if present
