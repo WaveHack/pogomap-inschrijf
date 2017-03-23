@@ -102,7 +102,7 @@ class RegistrationController extends Controller
 
         $registration->save();
 
-        $request->session()->flash('alert-success', "De registratie is {$label}");
+        $request->session()->flash('alert-success', "De registratie voor {$registration->username} is {$label}");
 
         return redirect()->route('admin.dashboard');
     }
