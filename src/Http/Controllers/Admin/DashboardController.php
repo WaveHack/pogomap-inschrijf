@@ -11,6 +11,15 @@ class DashboardController extends Controller
     {
         $registrations = Registration::where('status', 'new')->orderBy('created_at')->get();
 
-        return view('pages.admin.dashboard', compact('registrations'));
+        if (strncasecmp(PHP_OS, 'WIN', 3) === 0) {
+            $load = ['0.01', '0.05', '0.15 (test)'];
+        } else {
+            $load = sys_getloadavg();
+        }
+
+        return view('pages.admin.dashboard', compact(
+            'registrations',
+            'load'
+        ));
     }
 }
