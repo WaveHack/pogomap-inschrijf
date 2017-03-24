@@ -17,8 +17,6 @@
 <body class="hold-transition skin-blue layout-top-nav">
 {!! Analytics::render() !!}
 
-@include('partials.scripts')
-
 <div class="wrapper">
 
     <!-- Header -->
