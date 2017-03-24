@@ -28,8 +28,7 @@ $router->group(['prefix' => 'admin'], function (Router $router) {
 
     $router->group(['middleware' => 'auth'], function (Router $router) {
 
-        // todo: POST
-        $router->get('logout')->uses('Admin\AuthController@getLogout')->name('auth.logout');
+        $router->post('logout')->uses('Admin\AuthController@postLogout')->name('auth.logout');
 
         $router->get('dashboard')->uses('Admin\DashboardController@getIndex')->name('admin.dashboard');
 

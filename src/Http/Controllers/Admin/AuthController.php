@@ -22,7 +22,7 @@ class AuthController extends Controller
         return $this->login($request);
     }
 
-    public function getLogout(Request $request)
+    public function postLogout(Request $request)
     {
         return $this->logout($request);
     }
