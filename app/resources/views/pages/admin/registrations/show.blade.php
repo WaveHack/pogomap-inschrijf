@@ -23,7 +23,13 @@
 
                     <div class="row form-group">
                         <div class="col-sm-6"><strong>Buddy naam:</strong></div>
-                        <div class="col-sm-6"><mark style="font-family: monospace;">{{ $registration->buddy_name}}</mark></div>
+                        <div class="col-sm-6">
+                            @if ($registration->buddy_name)
+                                <mark style="font-family: monospace;">{{ $registration->buddy_name}}</mark>
+                            @else
+                                <em>Geen</em>
+                            @endif
+                        </div>
                     </div>
 
                     <div class="row form-group">
@@ -85,7 +91,9 @@
         </div>
 
         <div class="col-sm-6">
-            <img src="data:{{ $mime }};base64,{{ $buddyImageData }}" class="img-responsive img-thumbnail" alt="Buddy">
+            @if ($registration->buddy_file_path)
+                <img src="data:{{ $mime }};base64,{{ $buddyImageData }}" class="img-responsive img-thumbnail" alt="Buddy">
+            @endif
         </div>
     </div>
 @endsection

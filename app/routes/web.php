@@ -33,16 +33,11 @@ $router->group(['prefix' => 'admin', 'as' => 'admin.'], function (Router $router
         $router->get('dashboard')->uses('Admin\DashboardController@getIndex')->name('dashboard');
 
         $router->resource('registrations', 'Admin\RegistrationController');
-//        $router->resource('accounts', 'Admin\AccountController');
-//        $router->resource('users', 'Admin\UserController');
 
-        $router->get('accounts')->uses('Admin\AccountController@index')->name('accounts.index');
-        $router->get('accounts/{account}')->uses('Admin\AccountController@show')->name('accounts.show');
+        $router->resource('accounts', 'Admin\AccountController');
         $router->post('accounts/{account}')->uses('Admin\AccountController@postResetPassword')->name('accounts.reset-password');
 
-        $router->get('users')->uses('Admin\UserController@index')->name('users.index');
-        $router->get('users/{user}')->uses('Admin\UserController@show')->name('users.show');
-
+        $router->resource('users', 'Admin\UserController');
 
     });
 

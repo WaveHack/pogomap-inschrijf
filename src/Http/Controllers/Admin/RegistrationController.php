@@ -30,21 +30,35 @@ class RegistrationController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
+        $this->validate($request, [
+            'username' => 'required',
+            'email' => 'required|email',
+        ]);
+
+        $registration = Registration::create([
+            'username' => $request->get('username'),
+            'email' => $request->get('email'),
+        ]);
+
+        $request->session()->flash('alert-success', "Registratie voor {$registration->uername} aangemaakt.");
+
+        return redirect()->route('admin.registrations.index');
     }
 
     public function show(Registration $registration)
     {
-        $path = (storage_path() . '/app/' . $registration->buddy_file_path);
+        $data = [
+            'registration' => $registration,
+        ];
 
-        $mime = mime_content_type($path);
-        $buddyImageData = base64_encode(file_get_contents($path));
+        if ($registration->buddy_file_path !== null) {
+            $path = (storage_path() . '/app/' . $registration->buddy_file_path);
 
-        return view('pages.admin.registrations.show', compact(
-            'registration',
-            'mime',
-            'buddyImageData'
-        ));
+            $data['mime'] = mime_content_type($path);
+            $data['buddyImageData'] = base64_encode(file_get_contents($path));
+        }
+
+        return view('pages.admin.registrations.show', $data);
     }
 
     // edit
