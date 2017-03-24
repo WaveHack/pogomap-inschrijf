@@ -23,6 +23,13 @@ class RegistrationController extends Controller
         return view('pages.admin.registrations.index', compact('registrations'));
     }
 
+    public function create()
+    {
+        return view('pages.admin.registrations.create');
+    }
+
+    // store
+
     public function show(Registration $registration)
     {
         $path = (storage_path() . '/app/' . $registration->buddy_file_path);
@@ -36,6 +43,8 @@ class RegistrationController extends Controller
             'buddyImageData'
         ));
     }
+
+    // edit
 
     public function update(Registration $registration, Request $request)
     {
@@ -106,4 +115,6 @@ class RegistrationController extends Controller
 
         return redirect()->route('admin.dashboard');
     }
+
+    // destroy
 }

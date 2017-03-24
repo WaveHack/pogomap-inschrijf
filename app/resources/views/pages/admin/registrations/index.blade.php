@@ -8,6 +8,10 @@
             <h3 class="box-title">Aantal registraties: {{ $registrations->count() }}</h3>
         </div>
         <div class="box-body">
+            <p>
+                <a href="{{ route('admin.registrations.create') }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Nieuw</a>
+            </p>
+
             @if (!$registrations->isEmpty())
                 <table class="table">
                     <colgroup>
