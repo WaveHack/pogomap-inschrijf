@@ -28,7 +28,10 @@ class RegistrationController extends Controller
         return view('pages.admin.registrations.create');
     }
 
-    // store
+    public function store(Request $request)
+    {
+        dd($request);
+    }
 
     public function show(Registration $registration)
     {
@@ -48,6 +51,8 @@ class RegistrationController extends Controller
 
     public function update(Registration $registration, Request $request)
     {
+        // todo: validate $request
+
         switch (true) {
             case $request->exists('accept'):
                 $status = 'accepted';

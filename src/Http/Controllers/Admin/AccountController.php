@@ -27,6 +27,8 @@ class AccountController extends Controller
 
     public function postResetPassword(Account $account, Request $request)
     {
+        // todo: validate $request
+
         if ($account->registration->status !== 'accepted') {
             throw new \Exception('Expected registration status accepted, got ' . $account->registration->status);
         }

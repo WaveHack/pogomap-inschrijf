@@ -3,7 +3,7 @@
 @section('page-header', 'Inloggen')
 
 @section('content')
-    <form class="form-horizontal" action="{{ route('auth.login') }}" method="post" role="form">
+    <form class="form-horizontal" action="{{ route('admin.auth.login') }}" method="post" role="form">
         {{ csrf_field() }}
 
         <div class="form-group {{ $errors->has('email') ? 'has-error' : null }}">
