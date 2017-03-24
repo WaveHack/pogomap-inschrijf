@@ -13,16 +13,14 @@ class AccountController extends Controller
 {
     public function index()
     {
-        $accounts = Account::all();
-
-        return view('pages.admin.accounts.index', compact('accounts'));
+        return view('pages.admin.accounts.index', [
+            'accounts' => Account::all(),
+        ]);
     }
 
     public function show(Account $account)
     {
-        return view('pages.admin.accounts.show', compact(
-            'account'
-        ));
+        return view('pages.admin.accounts.show', compact('account'));
     }
 
     // update?
