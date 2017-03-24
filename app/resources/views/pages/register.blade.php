@@ -43,7 +43,7 @@
                     <div class="col-sm-9">
                         Stap 1: Geef je buddy de naam <mark style="font-family: monospace;">{{ $buddy_name }}</mark><br>
                         Stap 2: Maak een screenshot van je character<br>
-                        Stap 3: Zorg dat je in-game naam, je buddy naam, je level, experience en start date duidelijk zichtbaar zijn<br>
+                        Stap 3: Zorg dat je in-game naam, je buddy naam, je level en experience duidelijk zichtbaar zijn<br>
                         Stap 4: Voeg dit bestand hier toe in de originele resolutie:<br><br>
                         <input type="file" name="buddy_file" class="custom-file-input" id="buddy_name" required><br>
                         Voorbeeld (lage resolutie):<br>
