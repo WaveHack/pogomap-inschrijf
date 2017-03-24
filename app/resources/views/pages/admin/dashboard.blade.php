@@ -11,9 +11,9 @@
 
 @section('content')
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-md-6">
             <div class="row">
-                <div class="col-xs-6">
+                <div class="col-sm-6">
                     <div class="info-box">
                         @php($color = $registrations->count() > 0 ? 'aqua' : 'green')
                         <span class="info-box-icon bg-{{ $color }}">
@@ -27,7 +27,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-sm-6">
                     <div class="info-box">
                         @php($color = $load[0] >= 4 ? 'red' : ($load[0] >= 2 ? 'orange' : 'green'))
                         <span class="info-box-icon bg-{{ $color }}">
@@ -43,7 +43,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-md-6">
             <div class="box">
                 <div class="box-header with-border">
                     <h3 class="box-title">Nieuwe registraties</h3>
