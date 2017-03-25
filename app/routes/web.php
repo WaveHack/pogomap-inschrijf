@@ -43,4 +43,4 @@ $router->group(['prefix' => 'admin', 'as' => 'admin.'], function (Router $router
 
 });
 
-$router->get('test')->uses('TestController')->name('test');
+$router->get('test')->uses('TestController@getIndex')->name('test');
