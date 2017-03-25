@@ -89,6 +89,10 @@ class CacheRMData extends Command
 
     protected function cacheLuredPokestops()
     {
-        // todo
+        $numLuredPokestops = $this->db->table('pokestop')
+            ->whereNotNull('lure_expiration')
+            ->count();
+
+        Cache::put('pokestops.lured', $numLuredPokestops, 5);
     }
 }

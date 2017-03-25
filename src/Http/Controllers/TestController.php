@@ -13,6 +13,7 @@ class TestController extends Controller
             'gyms.mystic' => Cache::get('gyms.mystic'),
             'gyms.valor' => Cache::get('gyms.valor'),
             'gyms.instinct' => Cache::get('gyms.instinct'),
+            'pokestops.lured' => Cache::get('pokestops.lured'),
         ];
     }
 }
