@@ -83,7 +83,7 @@ class CacheRMData extends Command
         });
 
         foreach ($teams as $teamId => $team) {
-            Cache::put("gyms.{$team}", $gymsByTeam[$teamId], 5);
+            Cache::put("gyms.{$team}", $gymsByTeam[$teamId], 15);
         }
     }
 
