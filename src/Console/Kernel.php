@@ -3,6 +3,8 @@
 namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Contracts\Events\Dispatcher;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
@@ -15,6 +17,14 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         \App\Console\Commands\CacheRMData::class,
     ];
+
+    public function __construct(Application $app, Dispatcher $events)
+    {
+        define('ARTISAN_BINARY', 'bin/artisan');
+
+        parent::__construct($app, $events);
+    }
+
 
     /**
      * Define the application's command schedule.
