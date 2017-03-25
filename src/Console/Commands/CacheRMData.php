@@ -70,7 +70,7 @@ class CacheRMData extends Command
         $gyms = $this->db->table('gym')
             ->get();
 
-        Cache::put('gyms.total', $gyms->count(), 30);
+        Cache::put('gyms.total', $gyms->count(), 60);
 
         $gymsByTeam = [
             1 => 0,
