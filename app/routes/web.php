@@ -43,11 +43,4 @@ $router->group(['prefix' => 'admin', 'as' => 'admin.'], function (Router $router
 
 });
 
-$router->get('/test', function () {
-    return [
-        'gyms.total' => Cache::get('gyms.total', 0),
-        'gyms.mystic' => Cache::get('gyms.mystic', 0),
-        'gyms.valor' => Cache::get('gyms.valor', 0),
-        'gyms.instinct' => Cache::get('gyms.instinct', 0),
-    ];
-});
+$router->get('test')->uses('TestController')->name('test');
