@@ -18,13 +18,6 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\CacheRMData::class,
     ];
 
-    public function __construct(Application $app, Dispatcher $events)
-    {
-        define('ARTISAN_BINARY', 'bin/artisan');
-
-        parent::__construct($app, $events);
-    }
-
     /**
      * Define the application's command schedule.
      *
