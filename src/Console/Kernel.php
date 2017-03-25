@@ -25,7 +25,6 @@ class Kernel extends ConsoleKernel
         parent::__construct($app, $events);
     }
 
-
     /**
      * Define the application's command schedule.
      *
